@@ -1,0 +1,31 @@
+---
+import Link from "../components/Link_element.astro";
+
+const {title = "Scaleculus! | Calculus Learning Platform"} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>{title}</title>
+    </head>
+    
+	<body>
+        <nav>
+            <Link href = "/">Home</Link>
+            <Link href = "/CalculusIntro">What is Calculus</Link>
+            <Link href = "/CalculusIntro">Limits</Link>
+            <Link href = "/CalculusIntro">Continuity</Link>
+            <Link href = "/CalculusIntro">Slope of a Tangent Line</Link>
+            <Link href = "/CalculusIntro">Differentiation Rules of Algebraic Expressions</Link>
+            <Link href = "/CalculusIntro">Chain Rule and Implicit Differentiation</Link>
+        </nav>
+
+        <main>
+            <slot name = "information"/>
+            
+        </main>
+	</body>
+</html>
