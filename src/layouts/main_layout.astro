@@ -1,31 +1,35 @@
 ---
-import Link from "../components/Link_element.astro";
+import Topics from "../data/topics.json";
+
+import TopBar from "../components/TopBar.astro";
+import Footer from "../components/Footer.astro";
+
+import ColorPalette from "../color_p/color_style1.json";
+
+import "../styles/global.css";
 
 const {title = "Scaleculus! | Calculus Learning Platform"} = Astro.props;
 ---
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="mage/svg+ixml" href="/favicon.svg" />
+        
 	    <title>{title}</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fugaz+One&display=swap" rel="stylesheet"> 
+
     </head>
     
 	<body>
-        <nav>
-            <Link href = "/Scaleculus">Home</Link>
-            <Link href = "/Scaleculus/CalculusIntro">What is Calculus</Link>
-            <Link href = "/Scaleculus/CalculusIntro">Limits</Link>
-            <Link href = "/Scaleculus/CalculusIntro">Continuity</Link>
-            <Link href = "/Scaleculus/CalculusIntro">Slope of a Tangent Line</Link>
-            <Link href = "/Scaleculus/CalculusIntro">Differentiation Rules of Algebraic Expressions</Link>
-            <Link href = "/Scaleculus/CalculusIntro">Chain Rule and Implicit Differentiation</Link>
-        </nav>
-
+        <TopBar color = {ColorPalette}></TopBar>
         <main>
-            <slot name = "information"/>
-            
+            <slot />
         </main>
+        <Footer color = {ColorPalette}></Footer>
 	</body>
 </html>

@@ -1,0 +1,85 @@
+---
+const {color} = Astro.props;
+---
+
+<header class = "TopHeader" style={`
+    --primary: ${color.primary};
+    --secondary: ${color.secondary};
+    --accent: ${color.accent};
+    --background: ${color.background};
+    --text: ${color.text};
+`}>
+    Scaleculus
+</header>
+
+<nav class = "TopBar" style={`
+    --primary: ${color.primary};
+    --secondary: ${color.secondary};
+    --accent: ${color.accent};
+    --background: ${color.background};
+    --text: ${color.text};
+`}
+>
+    <a href = "/Scaleculus">Home</a>
+    <a href = "/Scaleculus/CalculusIntro">What is Calculus</a>
+    <a href = "/Scaleculus/Limits">Limits</a>
+    <a href = "/Scaleculus/CalculusIntro">Continuity</a>
+    <a href = "/Scaleculus/CalculusIntro">Slope of a Tangent Line</a>
+    <a href = "/Scaleculus/CalculusIntro">Differentiation Rules of Algebraic Expressions</a>
+    <a href = "/Scaleculus/CalculusIntro">Chain Rule and Implicit Differentiation</a>
+</nav>
+
+
+<style>
+    .TopHeader {
+        background-color: var(--primary);
+
+        font-family: "Fugaz One", sans-serif;
+        font-size: 5rem;
+
+        text-shadow: 0.25rem 0.25rem #2ebdff, -0.25rem -0.25rem #bf70ff;
+        text-align: center;
+    }
+
+    .TopBar {
+    background-color: var(--secondary);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+    padding: 10px;
+
+    border-width: 0.2rem 0;
+    border-style: solid;
+    border-color: var(--accent);
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    }
+
+    .TopBar a {
+        background-color: var(--primary);
+        font-family: "Fugaz One", sans-serif;
+        font-size: 1rem;
+        color: var(--text);
+
+        text-align: center;
+        text-decoration: none;
+        text-shadow: 0.1rem 0.1rem #000000, -0.1rem -0.1rem #bf70ff;
+
+        border-style: groove;
+
+        padding: 0.5rem 0.5rem ;
+        transition: color 0.5s, background-color 0.5s;
+    }
+        
+    .TopBar a:hover {
+        background-color: #9aa4ff;
+        color: black;
+        text-shadow: 0.1rem 0.1rem #2ebdff, -0.1rem -0.1rem #9a2eff;
+    }
+</style>

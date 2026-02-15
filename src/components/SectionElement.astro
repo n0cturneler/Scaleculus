@@ -1,0 +1,46 @@
+---
+const {color, direction, title} = Astro.props;
+---
+
+<main class = "Info_Setion" style={`
+    --primary: ${color.primary};
+    --secondary: ${color.secondary};
+    --accent: ${color.accent};
+    --background: ${color.background};
+    --text: ${color.text};
+    --direction: ${direction};
+`}
+>
+    <header class="Title">{title}</header>
+    <slot />
+</main>
+
+<style>
+    .Title {
+        background-color: var(--background);
+        color: black;
+        font-family: "Fugaz One", sans-serif;
+        font-size: 2.5rem;
+
+        padding: 1rem 1rem;
+        
+        border-width: 0.2rem 0;
+        border-style: solid;
+        border-color: var(--accent);
+
+        text-shadow: 0.1rem 0.1rem #2ebdff, -0.1rem -0.1rem #9a2eff;
+        text-align: var(--direction);
+    }
+
+
+    .Info_Setion {
+        background-color: var(--secondary);
+        color: var(--background);
+        font-family: "Fugaz One", sans-serif;
+        font-size: 1rem;
+        padding: 0.5rem 0.5rem;
+
+        text-align: var(--direction);
+    }
+
+</style>
