@@ -1,5 +1,8 @@
 # A School Project :)
 
+Website URL:
+<https://n0cturneler.github.io/Scaleculus/>
+
 ## Command guide
 
 | Command                   | Action                                           |
