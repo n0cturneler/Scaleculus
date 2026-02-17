@@ -4,8 +4,8 @@ const numComets = 5;
 const comets = Array.from({ length: numComets }, () => ({
   top: `-30%`,     
   left: `${Math.random() * 100 - 40}%`,
-  duration: `${(Math.random() * 4).toFixed(3)}s`, 
-  delay: `${(Math.random() * 2).toFixed(1)}s`         
+  duration: `${(3 + Math.random() * 2).toFixed(4)}s`, 
+  delay: `${(1 + Math.random() * 2).toFixed(4)}s`         
 }));
 ---
 
