@@ -1,0 +1,178 @@
+---
+const numComets = 5;
+
+const comets = Array.from({ length: numComets }, () => ({
+  top: `-30%`,     
+  left: `${Math.random() * 100 - 40}%`,
+  duration: `${(Math.random() * 4).toFixed(3)}s`, 
+  delay: `${(Math.random() * 2).toFixed(1)}s`         
+}));
+---
+
+<main class = "TopHeader">
+    <img class = "Background" src ="/Scaleculus/background/picography-gradient-night-sky.jpg" alt="">
+
+    <div class="Comets-Container">
+    {comets.map((comet, i) => {
+    return (
+      <div
+        class={`Comet comet${i}`}
+        style={`top: ${comet.top}; left: ${comet.left}; animation-duration: ${comet.duration}; animation-delay: ${comet.delay};`}
+      ></div>
+    )
+    })}
+    </div>
+
+    <header>Scaleculus</header>
+
+    <section class="Slogan">Interactive Calculus Learning Platform</section>
+</main>
+
+<style>
+     {
+    --wisteria: #BEADDCff;
+    --shadow-grey: #141527ff;
+    --petal-frost: #F7D3EBff;
+    --thistle: #D7BCE4ff;
+    --wisteria-2: #C493DAff;
+    --amethyst-smoke: #C18EC7ff;
+    --snow: #F8EEEDff;
+    }
+
+    .Comets-Container {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; 
+    z-index: -2;
+    }
+
+    .Comet {
+    position: absolute;
+    width: 40rem;
+    height: 5px;
+    background-color: rgb(254, 255, 246);         
+    transform: rotate(45deg);
+
+    filter: blur(3px);
+
+    opacity: 0.5;
+    z-index: 0;         
+    border-radius: 100%;
+    animation: moveComet 2s ease-in-out infinite;
+    }   
+    
+
+
+   @keyframes moveComet {
+    0% {
+        transform: translate(0px, 0px) rotate(45deg);
+    }
+    100% {
+        transform: translate(1800px, 1600px) rotate(50deg);
+    }
+    }
+
+    header {
+    position: relative;  
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 500;
+    font-size: 5em;
+
+    text-align: center;
+    text-decoration: none;
+
+    letter-spacing: 1rem;
+
+    padding: 5rem 5rem 2rem 5rem;
+    margin: 0rem 2rem 0rem;
+
+    color: var(--snow);
+
+    background: linear-gradient(90deg, var(--wisteria), var(--amethyst-smoke), var(--petal-frost));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 0 15px rgba(190, 173, 220, 0.6), 
+                 0 0 30px rgba(193, 142, 199, 0.4);
+    z-index: 3;
+
+    transition: all 0.5s ease;
+    animation: pulse 3s ease-in-out infinite;
+   }
+
+   header::after {
+        content: "";
+        position: absolute;
+
+        bottom: 0;                 
+
+        left: 50%;                  
+
+        transform: translateX(-50%);
+
+        width: 25rem;          
+
+        height: 0.3rem;         
+
+        background: var(--wisteria);
+
+        border-radius: 0.2rem;     
+    
+        box-shadow: 0 0 10px var(--wisteria); 
+    }
+
+   @keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px rgba(190, 173, 220, 0.5), 0 0 20px rgba(193, 142, 199, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(190, 173, 220, 0.8), 0 0 40px rgba(193, 142, 199, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(190, 173, 220, 0.5), 0 0 20px rgba(193, 142, 199, 0.3);
+    }
+    }
+
+    @keyframes changeFont {
+    0%, 33% { font-family: "Quicksand", sans-serif; }
+    34%, 66% { font-family: "Fugaz One", sans-serif; }
+    67%, 100% { font-family: "Arial", sans-serif; }
+    }
+
+   .Slogan {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 750;
+    font-size: 1rem;
+
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.2rem;
+
+    border-bottom: 0.1rem solid var(--wisteria-2);
+    border-top: 0.1rem solid var(--wisteria-2);
+
+    box-shadow: 0rem 0rem 5rem 0.1rem var(--wisteria-2);
+    padding: 1rem;
+
+    margin: 5rem 0rem 10rem;
+    color: var(--snow);
+    z-index: 3;
+   }
+
+   .Background {
+    position: fixed;
+    background-repeat: repeat;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    opacity: 0.25;
+    filter: blur(5px);
+    z-index: -1;
+   }
+
+</style>

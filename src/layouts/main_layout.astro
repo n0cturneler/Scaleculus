@@ -1,12 +1,12 @@
 ---
 import Topics from "../data/topics.json";
 
-import TopBar from "../components/TopBar.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
 import ColorPalette from "../color_p/color_style1.json";
 
-import "../styles/global.css";
+import "../styles/style1.css";
 
 const {title = "Scaleculus! | Calculus Learning Platform"} = Astro.props;
 ---
@@ -15,21 +15,23 @@ const {title = "Scaleculus! | Calculus Learning Platform"} = Astro.props;
     <head>
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="mage/svg+ixml" href="/favicon.svg" />
+        <link rel="shortcut icon" type="image/x-icon" href="/Scaleculus/logo/favicon.svg" />
         
 	    <title>{title}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fugaz+One&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fugaz+One&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
 
     </head>
     
 	<body>
-        <TopBar color = {ColorPalette}></TopBar>
-        <main>
-            <slot />
-        </main>
-        <Footer color = {ColorPalette}></Footer>
+        <Header></Header>
+       <slot />
 	</body>
 </html>
+
+<style>
+    
+</style>

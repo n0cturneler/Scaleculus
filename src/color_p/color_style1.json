@@ -1,7 +1,9 @@
 {
-  "primary": "#2563EB",
-  "secondary": "#1E40AF",
-  "accent": "#38BDF8",
-  "background": "#F1F5F9",
-  "text": "#cfe8ff"
+  "wisteria": "#BEADDCff",
+  "shadow-grey": "#141527ff",
+  "petal-frost": "#F7D3EBff",
+  "thistle": "#D7BCE4ff",
+  "wisteria-2": "#C493DAff",
+  "amethyst-smoke": "#C18EC7ff",
+  "snow": "#F8EEEDff"
 }
