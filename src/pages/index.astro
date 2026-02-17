@@ -2,79 +2,73 @@
 import Topic from "../data/topics.json";
 import MainLayout from "../layouts/main_layout.astro";
 import SectionElement from "../components/SectionElement.astro";
-import ColorPalette from "../color_p/color_style1.json";
+import VerticalSection from "../components/VerticalSection.astro"
+
 ---
 
 <MainLayout>
-	<main>
-		<SectionElement color = {ColorPalette} direction = left title = {Topic.Topics[5]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+	<main class = "Section-con">
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder
+				askjudhuaskidhkjashdjkabhkjdahjkdhjaksdha khkja hkhakshd jkahdkjhask sha
+			</section>
 		</SectionElement>
 
-		<SectionElement color = {ColorPalette} direction = right title = {Topic.Topics[0]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder
+
+					KNEEE GROW
+			</section>
 		</SectionElement>
 
-		<SectionElement color = {ColorPalette} direction = center title = {Topic.Topics[1]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
 		</SectionElement>
 
-		<SectionElement color = {ColorPalette} direction = left title = {Topic.Topics[2]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
 		</SectionElement>
 
-		<SectionElement color = {ColorPalette} direction = right title = {Topic.Topics[3]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
 		</SectionElement>
 
-		<SectionElement color = {ColorPalette} direction = center title = {Topic.Topics[4]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
 		</SectionElement>
 
-		<SectionElement color = {ColorPalette} direction = left title = {Topic.Topics[5]}>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
-			do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			eprehenderit in voluptate velit esse cillum dolore eu fugiat 
-			nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-			sunt in culpa qui officia deserunt mollit anim id est laborum
+		<VerticalSection title = "SIGMA" direction = "right">
+			<section>Information Placeholder</section>
+			<br>
+			yes
+		</VerticalSection>
+
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
 		</SectionElement>
+
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
+		</SectionElement>
+
+		<SectionElement title = "Title" direction = "left">
+			<section>Information Placeholder</section>
+		</SectionElement>
+
+		<VerticalSection title = "SIGMA" direction = "right">
+			<section>hi this is the bottom</section>
+		</VerticalSection>
+
 	</main>
 </MainLayout>
+
+<style>
+	.Section-con {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		
+		gap: 0.5rem;
+		justify-content: center; 
+	}
+</style>
