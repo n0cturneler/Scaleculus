@@ -5,14 +5,37 @@ const comets = Array.from({ length: numComets }, () => ({
   top: `-30%`,     
   left: `${Math.random() * 100 - 40}%`,
   duration: `${(3 + Math.random() * 2).toFixed(4)}s`, 
-  delay: `${(1 + Math.random() * 2).toFixed(4)}s`         
+  delay: `${(1 + Math.random() * 8).toFixed(4)}s`         
 }));
 ---
 
 <main class = "TopHeader">
-    <img class = "Background" src ="/Scaleculus/background/picography-gradient-night-sky.jpg" alt="">
+    <header>
+        <section class="Header-Text">
+           Scaleculus
+           <!-- Fix this then it will be peak
+           <video class="Text-Fill" autoplay muted loop>
+                <source src = "/Scaleculus/videos/15562120-hd_1920_1080_24fps.mp4" type="video/mp4">
+            </video>
+           -->
+            
+        </section>
+        <img class = "Background" src ="/Scaleculus/background/mountain_sky_bg1.jpg" alt="">
+        
+       <div class = "Line"></div>
+    </header>
+    
+    <section class="Slogan">Interactive Calculus Learning Platform</section>
+</main>
 
-    <div class="Comets-Container">
+<div class="Stars-Container">
+    <div class="Star" style="top: 10vh; left: 10vw; font-size: 15vw;">✧</div>
+    <div class="Star" style="top: 50vh; left: 10vw; font-size: 20vw;">✧</div>
+    <div class="Star" style="top: 60vh; left: 80vw; font-size: 10vw;">✧</div>
+    <div class="Star" style="top: 5vh; left: 80vw; font-size: 20vw;">✧</div>
+</div>
+
+<div class="Comets-Container">
     {comets.map((comet, i) => {
     return (
       <div
@@ -21,15 +44,10 @@ const comets = Array.from({ length: numComets }, () => ({
       ></div>
     )
     })}
-    </div>
-
-    <header>Scaleculus</header>
-
-    <section class="Slogan">Interactive Calculus Learning Platform</section>
-</main>
+</div>
 
 <style>
-     {
+    :root {
     --wisteria: #BEADDCff;
     --shadow-grey: #141527ff;
     --petal-frost: #F7D3EBff;
@@ -38,32 +56,165 @@ const comets = Array.from({ length: numComets }, () => ({
     --amethyst-smoke: #C18EC7ff;
     --snow: #F8EEEDff;
     }
+    
+    body {
+    background: var(--shadow-grey);
+    }
 
-    .Comets-Container {
-    position: fixed;  
+
+    .TopHeader {
+        position: relative;
+        z-index: 1;
+    }
+
+    header {
+    position: relative;  
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 500;
+    font-size: 5vw;
+    
+    background-color: var(--shadow-grey);
+
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+
+    letter-spacing: 3vw;
+
+    padding: 0rem 0rem 0rem 0rem;
+    margin: 0rem 0rem 0rem;
+
+    color: var(--snow);
+
+    background: linear-gradient(10deg, var(--wisteria-2), var(--shadow-grey));
+    
+    text-shadow: 0 0 15px rgba(190, 173, 220, 0.6), 
+                 0 0 30px rgba(193, 142, 199, 0.4);
+    z-index: 1;
+
+    transition: all 0.5s ease;
+    animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px var(--amethyst-smoke), 0 0 20px var(--wisteria-2);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--amethyst-smoke), 0 0 40px var(--wisteria-2);
+    }
+    100% {
+        text-shadow: 0 0 10px var(--amethyst-smoke), 0 0 20px var(--wisteria-2);
+    }
+
+    }
+    .Header-Text {
+    position: relative;
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 900;
+    font-size: 8vw;
+    text-align: center;
+    color: var(--snow); 
+    width: max-content;
+    margin: 0 auto;
+    z-index: 1;
+        
+    }
+
+   
+
+    .Text-Fill {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; 
-    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    }
+
+   
+    .Slogan {
+        font-family: "Quicksand", sans-serif;
+        font-weight: 750;
+        font-size: 1rem;
+
+        background: var(--shadow-grey);
+
+        text-align: center;
+        text-decoration: none;
+        letter-spacing: 0.2rem;
+
+        border-top: 0.2rem solid var(--wisteria-2);
+        border-bottom: 0.2rem solid var(--wisteria-2);
+
+        box-shadow: 0rem 0rem 5rem 0.1rem var(--wisteria-2);
+        padding: 1rem;
+
+        margin: 0rem 0rem 10rem;
+        color: var(--snow);
+        z-index: 3;
+    }
+
+    .Line {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        bottom: 25vh;
+
+        width: 30vw;
+        height: 1vh;
+        border-radius: 2rem;
+
+        box-shadow: 0rem 0rem 1rem 0.1rem var(--snow);
+        background-color: var(--snow);   
+
+        opacity: 0.8;  
+        z-index: 3;
+    }
+
+    .Background {
+    position: absolute;
+    pointer-events: none;
+    background-position: center;
+    background-repeat: repeat;
+
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+    opacity: 0.25;
+    filter: blur(0px);
     }
 
     .Comet {
     position: absolute;
-    width: 40rem;
+    width: 30rem;
     height: 5px;
     background-color: rgb(254, 255, 246);         
     transform: rotate(45deg);
 
     filter: blur(3px);
 
-    opacity: 0.5;
-    z-index: 0;         
+    opacity: 0.5;  
     border-radius: 100%;
     animation: moveComet 2s ease-in-out infinite;
     }   
     
+    .Comets-Container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    }
 
 
    @keyframes moveComet {
@@ -75,104 +226,53 @@ const comets = Array.from({ length: numComets }, () => ({
     }
     }
 
-    header {
-    position: relative;  
-    font-family: "Fugaz One", sans-serif;
-    font-weight: 500;
-    font-size: 5em;
-
-    text-align: center;
-    text-decoration: none;
-
-    letter-spacing: 1rem;
-
-    padding: 5rem 5rem 2rem 5rem;
-    margin: 0rem 2rem 0rem;
-
-    color: var(--snow);
-
-    background: linear-gradient(90deg, var(--wisteria), var(--amethyst-smoke), var(--petal-frost));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    text-shadow: 0 0 15px rgba(190, 173, 220, 0.6), 
-                 0 0 30px rgba(193, 142, 199, 0.4);
-    z-index: 3;
-
-    transition: all 0.5s ease;
-    animation: pulse 3s ease-in-out infinite;
-   }
-
-   header::after {
-        content: "";
-        position: absolute;
-
-        bottom: 0;                 
-
-        left: 50%;                  
-
-        transform: translateX(-50%);
-
-        width: 25rem;          
-
-        height: 0.3rem;         
-
-        background: var(--wisteria);
-
-        border-radius: 0.2rem;     
-    
-        box-shadow: 0 0 10px var(--wisteria); 
-    }
-
-   @keyframes pulse {
-    0% {
-        text-shadow: 0 0 10px rgba(190, 173, 220, 0.5), 0 0 20px rgba(193, 142, 199, 0.3);
-    }
-    50% {
-        text-shadow: 0 0 20px rgba(190, 173, 220, 0.8), 0 0 40px rgba(193, 142, 199, 0.5);
-    }
-    100% {
-        text-shadow: 0 0 10px rgba(190, 173, 220, 0.5), 0 0 20px rgba(193, 142, 199, 0.3);
-    }
-    }
-
-    @keyframes changeFont {
-    0%, 33% { font-family: "Quicksand", sans-serif; }
-    34%, 66% { font-family: "Fugaz One", sans-serif; }
-    67%, 100% { font-family: "Arial", sans-serif; }
-    }
-
-   .Slogan {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 750;
-    font-size: 1rem;
-
-    text-align: center;
-    text-decoration: none;
-    letter-spacing: 0.2rem;
-
-    border-bottom: 0.1rem solid var(--wisteria-2);
-    border-top: 0.1rem solid var(--wisteria-2);
-
-    box-shadow: 0rem 0rem 5rem 0.1rem var(--wisteria-2);
-    padding: 1rem;
-
-    margin: 5rem 0rem 10rem;
-    color: var(--snow);
-    z-index: 3;
-   }
-
-   .Background {
-    position: fixed;
-    background-repeat: repeat;
+    .Stars-Container {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    pointer-events: none; 
+    z-index: 4; 
+    }
 
-    opacity: 0.25;
-    filter: blur(5px);
-    z-index: -1;
-   }
+    .Star {
+    position: absolute;
+    color: transparent;
+    font-weight: 1000;
 
-</style>
+    text-shadow: 
+        -.5rem -.5rem 0.5rem var(--snow),   
+        0 0 1rem var(--wisteria-2); 
+
+    opacity: 1;
+    transition: all 0.5s ease;
+    animation: sparkle 2s ease-in-out infinite, shake 0.15s linear infinite;    
+    }
+
+    .Star:nth-child(2) { animation: sparkle 1.5s ease-in-out infinite, shake 0.15s linear infinite; }
+    .Star:nth-child(3) { animation: sparkle 2.5s ease-in-out infinite, shake 0.15s linear infinite; }
+    .Star:nth-child(4) { animation: sparkle 1.8s ease-in-out infinite, shake 0.15s linear infinite; }
+    .Star:nth-child(5) { animation: sparkle 2.2s ease-in-out infinite, shake 0.15s linear infinite; }
+
+    @keyframes sparkle {
+    0%, 49%, 55%, 100% 
+    { 
+        opacity: 1; 
+        text-shadow: -.5rem -.5rem 1rem var(--snow), 0 0 1rem var(--wisteria-2);
+    }
+    50% { 
+        opacity: 0.3; 
+        text-shadow: -.5rem -.5rem 0.5rem var(--snow), 0 0 1rem var(--wisteria-2);
+    }
+    }
+    
+    @keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-1px, 1px); }
+    50% { transform: translate(1px, -1px); }
+    75% { transform: translate(-1px, -1px); }
+    100% { transform: translate(0, 0); }
+    }
+
+</style>    
