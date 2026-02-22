@@ -20,7 +20,7 @@ const {direction, title} = Astro.props;
 </main>
 
 <style>
-    {
+    :root {
     --wisteria: #BEADDCff;
     --shadow-grey: #141527ff;
     --petal-frost: #F7D3EBff;
@@ -31,6 +31,9 @@ const {direction, title} = Astro.props;
     }
 
     .Info_Section{
+
+        background: var(--shadow-grey);
+        
         position: relative;
         overflow: auto;
 
@@ -59,7 +62,7 @@ const {direction, title} = Astro.props;
 
         object-fit: cover;
 
-        filter: blur(5px);
+        filter: blur(3px);
 
         -webkit-mask-image: linear-gradient(to top, black 75%, transparent 50%);
         mask-image: linear-gradient(to top, black 5%, transparent 75%);
@@ -79,6 +82,8 @@ const {direction, title} = Astro.props;
         font-weight: 1000;
 
         text-align: var(--direction);
+
+        margin-bottom: 1rem; 
 
         z-index: 2;
     }
