@@ -7,10 +7,11 @@ const comets = Array.from({ length: numComets }, () => ({
   duration: `${(3 + Math.random() * 2).toFixed(4)}s`, 
   delay: `${(1 + Math.random() * 8).toFixed(4)}s`         
 }));
+
 ---
 
 <main class = "TopHeader">
-    <header>
+    <header id = "Header">
         <section class="Header-Text">
            Scaleculus
            <!-- Fix this then it will be peak
@@ -68,7 +69,7 @@ const comets = Array.from({ length: numComets }, () => ({
     }
 
     header {
-    position: relative;  
+    position: fixed;  
     font-family: "Fugaz One", sans-serif;
     font-weight: 500;
     font-size: 5vw;
@@ -97,8 +98,7 @@ const comets = Array.from({ length: numComets }, () => ({
                  0 0 30px rgba(193, 142, 199, 0.4);
     z-index: 1;
 
-    transition: all 0.5s ease;
-    animation: pulse 3s ease-in-out infinite;
+    
     }
 
     @keyframes pulse {
@@ -247,6 +247,12 @@ const comets = Array.from({ length: numComets }, () => ({
 
     opacity: 1;
     transition: all 0.5s ease;
+
+    animation-name: move_stars;
+    animation-duration: auto; 
+    animation-timing-function: linear;
+    animation-fill-mode: both; 
+
     animation: sparkle 2s ease-in-out infinite, shake 0.15s linear infinite;    
     }
 
@@ -275,4 +281,41 @@ const comets = Array.from({ length: numComets }, () => ({
     100% { transform: translate(0, 0); }
     }
 
+    @keyframes move_stars {
+        0% { transform: translate(0, 0); }
+    100% { transform: translate(0, 300px); }
+    }
+
 </style>    
+
+<script type="module">
+  // Wait until the DOM is fully loaded
+  window.addEventListener('DOMContentLoaded', () => {
+    const $header = document.querySelector("#Header");
+
+    // Fixate the header
+    $header.style.position = 'fixed';
+    $header.style.top = 0;
+
+    // Offset content
+    document.body.style.paddingTop = '100vh';
+
+    // Scroll animation
+    $header.animate(
+      {
+        backgroundPosition: ["50% 0", "50% 100%"],
+        backgroundColor: ['transparent', '#0b1584'],
+        height: ['100vh', '10vh'],
+        fontSize: ['calc(4vw + 1em)', 'calc(1vw + 1em)'],
+      },
+      {
+        fill: "both",
+        timeline: new ScrollTimeline({
+          source: document.documentElement,
+          rangeStart: '0',
+          rangeEnd: '90vh',
+        }),
+      }
+    );
+  });
+</script>
