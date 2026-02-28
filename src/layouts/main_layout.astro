@@ -27,11 +27,23 @@ const {title = "Scaleculus! | Calculus Learning Platform"} = Astro.props;
     </head>
     
 	<body>
+        <img class = "Background" src ="/Scaleculus/background/gradient_sky.jpg" alt="">
         <Header></Header>
        <slot />
 	</body>
 </html>
 
 <style>
-    
-</style>
+    .Background {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+
+        background-size: cover;
+        background-position: center;
+
+        filter: blur(0px) hue-rotate(30deg) brightness(75%);
+        z-index: 0;
+        
+    }
+</style>    
