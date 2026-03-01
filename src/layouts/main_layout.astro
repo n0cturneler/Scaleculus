@@ -20,30 +20,87 @@ const {title = "Scaleculus! | Calculus Learning Platform"} = Astro.props;
 	    <title>{title}</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fugaz+One&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fugaz+One&family=Press+Start+2P&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
 
     </head>
     
 	<body>
+        <div id="Stars-Container1"></div>
         <img class = "Background" src ="/Scaleculus/background/gradient_sky.jpg" alt="">
         <Header></Header>
        <slot />
+
+       
 	</body>
 </html>
 
 <style>
+    body {
+        position: relative;
+    }
+
+    #Stars-Container1 {
+    position: fixed;   /* stays in place on the screen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* so clicks go through */
+    z-index: 1;           /* above background but below header/content */
+}
+
     .Background {
         position: fixed;
         height: 100vh;
         width: 100vw;
-
+        opacity: 1;
         background-size: cover;
         background-position: center;
 
-        filter: blur(0px) hue-rotate(30deg) brightness(75%);
+        filter: blur(0px) hue-rotate(30deg) brightness(60%);
         z-index: 0;
         
     }
+
+    .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 1;
+        z-index: 4;
+        animation: twinkle 2s infinite ease-in-out;
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 0.3; }
+    }
+
 </style>    
+<!--
+<script is:inline>
+function createStars() {
+  const numberOfStars = 100;
+  const container = document.getElementById("Stars-Container1");
+  if (!container) return;
+
+  for (let i = 0; i < numberOfStars; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    const size = Math.random() * 7 + 1; // px, small stars
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+
+    container.appendChild(star);
+  }
+}
+
+createStars();
+</script>
+-->

@@ -2,36 +2,40 @@
 const numComets = 5;
 
 const comets = Array.from({ length: numComets }, () => ({
-  top: `-30%`,     
-  left: `${Math.random() * 100 - 40}%`,
+  top: `-20vh`,     
+  left: `${Math.random() * 60 - 50}vw`,
   duration: `${(3 + Math.random() * 2).toFixed(4)}s`, 
   delay: `${(1 + Math.random() * 8).toFixed(4)}s`         
 }));
 
 ---
 
-<main class = "TopHeader">
+<main id = "TopHeader">
     <header id = "Header">
         <section class="Header-Text">
-           Scaleculus
-           <!-- Fix this then it will be peak
-           <video class="Text-Fill" autoplay muted loop>
-                <source src = "/Scaleculus/videos/15562120-hd_1920_1080_24fps.mp4" type="video/mp4">
-            </video>
-           -->
+           Scaleculus                      
+        </section>
+        <section id = "Slogan">
             
         </section>
-        <img class = "Background" src ="/Scaleculus/background/mountain_sky_bg1.jpg" alt="">
+        <img id = "Background" src ="/Scaleculus/background/mountain_sky_bg1.jpg" alt="">
+
+        <div class="Design-Wrapper">
+            <div id = "Design-Container">
+            <img id = "Mascot" src = "/Scaleculus/logo/Mascot.png">
+            <img class = "Header-Design" src = "/Scaleculus/logo/SubLogo.png" style="top: 0vh; left: 70vw; filter:blur(1px); width:70vh; height:auto;">
+            </div>
+        </div>
         
        <div class = "Line"></div>
+       
     </header>
-    
-    <section class="Slogan">Interactive Calculus Learning Platform</section>
+    <div id="Header-Spacer"></div>
 </main>
 
 <div class="Stars-Container">
-    <div class="Star" style="top: 10vh; left: 10vw; font-size: 15vw;">✧</div>
-    <div class="Star" style="top: 50vh; left: 10vw; font-size: 20vw;">✧</div>
+    <div class="Star" style="top: 5vh; left: 10vw; font-size: 15vw;">✧</div>
+    <div class="Star" style="top: 50vh; left: 5vw; font-size: 20vw;">✧</div>
     <div class="Star" style="top: 60vh; left: 80vw; font-size: 10vw;">✧</div>
     <div class="Star" style="top: 5vh; left: 80vw; font-size: 20vw;">✧</div>
 </div>
@@ -63,16 +67,15 @@ const comets = Array.from({ length: numComets }, () => ({
     }
 
 
-    .TopHeader {
+    #TopHeader {
         position: relative;
-        z-index: 1;
+        z-index: 3;
+       background-color: transparent;
     }
 
-    header {
-    position: relative;  
+    #Header {
+    position: fixed;  
     font-family: "Fugaz One", sans-serif;
-    font-weight: 500;
-    font-size: 5vw;
     
     background-color: var(--shadow-grey);
 
@@ -81,11 +84,12 @@ const comets = Array.from({ length: numComets }, () => ({
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;   
 
     text-align: center;
     text-decoration: none;
 
-    letter-spacing: 3vw;
+    opacity: 1;
 
     padding: 0rem 0rem 0rem 0rem;
     margin: 0rem 0rem 0rem;
@@ -93,7 +97,10 @@ const comets = Array.from({ length: numComets }, () => ({
     color: var(--snow);
 
     background: linear-gradient(10deg, var(--wisteria-2), var(--shadow-grey));
-    
+
+    border-bottom: solid 0.1rem var(--amethyst-smoke);
+    box-shadow: 0px 0px 2rem 3px var(--amethyst-smoke);
+
     text-shadow: 0 0 15px rgba(190, 173, 220, 0.6), 
                  0 0 30px rgba(193, 142, 199, 0.4);
     z-index: 1;
@@ -112,54 +119,65 @@ const comets = Array.from({ length: numComets }, () => ({
     100% {
         text-shadow: 0 0 10px var(--amethyst-smoke), 0 0 20px var(--wisteria-2);
     }
-
     }
+
+    #Header-Spacer {
+    height: 100vh;
+    background-color: transparent;
+
+    transition: height 0.5s ease;
+    }
+
     .Header-Text {
     position: relative;
     font-family: "Fugaz One", sans-serif;
-    font-weight: 900;
+
+    font-weight: 500;
     font-size: 8vw;
+    letter-spacing: 3vw;
+
     text-align: center;
     color: var(--snow); 
+
     width: max-content;
+
     margin: 0 auto;
+
+    transition: all 0.5s ease;
     z-index: 1;
         
     }
 
-   
+    #Slogan {
+        position: relative;
 
-    .Text-Fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
+        font-family: "Press Start 2P", system-ui;
+        font-weight: 1000;
+        font-size: 2vw;
+        opacity: 1;
+
+        color: var(--snow);
+        
+        height: 2vh;
+        width: 55vw;
+        border-radius: 0.25rem;
+        
+        letter-spacing: 0.1vw;
+        
+        transition: all 0.5s ease;
+        z-index: 1;
     }
 
-   
-    .Slogan {
-        font-family: "Quicksand", sans-serif;
-        font-weight: 750;
-        font-size: 1rem;
+    #Slogan::after {
+    content: '▮';
+    display: inline-block;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+    }
 
-        background: var(--shadow-grey);
-
-        text-align: center;
-        text-decoration: none;
-        letter-spacing: 0.2rem;
-
-        border-top: 0.2rem solid var(--wisteria-2);
-        border-bottom: 0.2rem solid var(--wisteria-2);
-
-        box-shadow: 0rem 0rem 5rem 0.1rem var(--wisteria-2);
-        padding: 1rem;
-
-        margin: 0rem 0rem 10rem;
-        color: var(--snow);
-        z-index: 3;
+    @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
     }
 
     .Line {
@@ -181,19 +199,83 @@ const comets = Array.from({ length: numComets }, () => ({
         z-index: 3;
     }
 
-    .Background {
+    #Background {
     position: absolute;
     pointer-events: none;
     background-position: center;
     background-repeat: repeat;
 
-    inset: 0;
+    top: 0rem;
     width: 100%;
     height: 100%;
 
-    z-index: -1;
     opacity: 0.25;
-    filter: blur(0px);
+    filter: blur(1px) brightness(100%);
+    
+    transition: all 0.5s ease;
+
+    z-index: 0;
+    }
+
+    #Mascot {
+    position: absolute;
+    pointer-events: none;
+
+    top: 60vh;
+    left: 15vw;
+    width: 20vw;
+    height: auto;
+
+    transform: rotate(20deg);
+
+    opacity: 1;
+    filter: brightness(100%) blur(0px) drop-shadow(20px 20px 10px #000000);
+    -webkit-filter: drop-shadow(20px 20px 10px #222222);
+    
+    transition: all 0.5s ease;
+
+    z-index: 5;
+    animation: moveElements 2.5s ease-in-out infinite;
+    }
+
+    .Header-Design {
+    position: absolute;
+    pointer-events: none;
+
+    width: 20rem;
+    height: 20rem;
+
+    transform: rotate(20deg);
+
+    opacity: 1;
+    filter: brightness(100%) blur(0px) drop-shadow(20px 20px 10px #000000);
+    -webkit-filter: drop-shadow(20px 20px 10px #222222);
+    
+    transition: all 0.5s ease;
+
+    z-index: 5;
+    animation: moveElements 3.5s ease-in-out infinite;
+    }
+
+    @keyframes moveElements {
+    0%   { transform: translateY(0) rotate(20deg); }
+    50%  { transform: translateY(2.5vh) rotate(15deg); }
+    100% { transform: translateY(0) rotate(20deg); }
+    }
+
+    .Design-Wrapper {
+    position: absolute;
+    inset: 0;
+    transition: all 0.5s ease;
+    }
+
+    .Design-Container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    transition: all 0.5s ease;
+    z-index: 0;
     }
 
     .Comet {
@@ -234,7 +316,8 @@ const comets = Array.from({ length: numComets }, () => ({
     width: 100vw;
     height: 100vh;
     pointer-events: none; 
-    z-index: 4; 
+    z-index: 3; 
+    transition: transform 0.6s ease;
     }
 
     .Star {
@@ -244,7 +327,7 @@ const comets = Array.from({ length: numComets }, () => ({
 
     text-shadow: 
         -.5rem -.5rem 0.5rem var(--snow),   
-        0 0 1rem var(--wisteria-2); 
+        0 0 1rem var(--wisteria-2);
 
     opacity: 1;
     transition: all 0.5s ease;
@@ -288,38 +371,74 @@ const comets = Array.from({ length: numComets }, () => ({
     }
 
 </style>    
-<!-- study gsap
-<script type="module">
-  // Wait until the DOM is fully loaded
-  window.addEventListener('DOMContentLoaded', () => {
-    const $header = document.querySelector("#Header");
 
-    // Fixate the header
-    $header.style.position = 'fixed';
-    $header.style.top = 0;
+<script is:inline>
+    window.onscroll = function() {scrollFunction()};
+    
+    const Header = document.getElementById('Header');
+    const HeaderText = document.querySelector('.Header-Text');
+    const Spacer = document.getElementById('Header-Spacer');
+    const Stars = document.querySelector('.Stars-Container');
 
-    // Offset content
-    document.body.style.paddingTop = '100vh';
+    const DesignContainer = document.querySelector('.Design-Wrapper');
 
-    // Scroll animation
-    $header.animate(
-      {
-        backgroundPosition: ["50% 0", "50% 100%"],
-        backgroundColor: ['transparent', '#0b1584'],
-        height: ['100vh', '10vh'],
-        fontSize: ['calc(4vw + 1em)', 'calc(1vw + 1em)'],
-      },
-      {
-        fill: "both",
-        timeline: new ScrollTimeline({
-          source: document.documentElement,
-          rangeStart: '0',
-          rangeEnd: '90vh',
-        }),
-      }
-    );
-  });
+    const Background = document.getElementById('Background');
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    Header.style.height = "10vh";
+
+    HeaderText.style.fontWeight = "100";
+    HeaderText.style.fontSize  = "2vw";
+    HeaderText.style.letterSpacing = "1vw";
+
+    Spacer.style.height = "60vh";
+
+    Slogan.style.opacity = "0";
+    Slogan.style.maxHeight = '0';
+
+    Stars.style.transform = "translateY(-100vh)";
+
+    DesignContainer.style.transform = "translateY(-120vh)";
+
+    Background.style.filter = "blur(5px) brightness(50%)";
+  } else {
+    Header.style.height = "100vh";
+
+    HeaderText.style.fontWeight = "500";
+    HeaderText.style.fontSize = "8vw";
+    HeaderText.style.letterSpacing = "3vw";
+
+    Spacer.style.height = "100vh";
+
+    Slogan.style.opacity = "1";
+    Slogan.style.maxHeight = "2vh";   
+
+    Stars.style.transform = "translateY(0)";
+
+    DesignContainer.style.transform = "translateY(0)";
+
+    Background.style.filter = "blur(1px) brightness(100%)";
+  }
+} 
+
+const Slogan = document.getElementById('Slogan');
+const Text = "Interactive Calculus Learning Platform";
+let index = 0;
+const speed = 80; 
+
+function typeSlogan() {
+  if (index < Text.length) {
+    Slogan.textContent += Text.charAt(index);
+    index++;
+    setTimeout(typeSlogan, speed);
+  }
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  typeSlogan();
+});
+
 </script>
-
- -->
 
