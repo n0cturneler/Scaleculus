@@ -16,64 +16,50 @@ import { Accordion, AccordionItem } from 'free-astro-components'
 <SubLayout>
 	<Sidebar currentPage="Games">
 	</Sidebar>
-    <HorizontalSection title="Play and Have fun" direction = "left" fontsize1 = "3rem" fontsize2 = "2rem" justifycontent = "center" width = "100%">
-		<section>
-				Scaleculus makes learning calculus fun! Explore lessons on Limits, Continuity, Tangent Lines, Differentiation, and the Chain Rule. 
-				<br>
-				<br>
-				Play interactive games in our Arcade while practicing what you learn!
-		</section>	
-	</HorizontalSection>
+    <HorizontalSection title="Arcade Games" direction="center" fontsize1="3rem" fontsize2="2rem" justifycontent="center" width="100%">
+      <br>Learn while having fun.<br><br>
+<section class="Games">
 
-    <HorizontalSection title="Escape from Pixel Castle" direction = "center" fontsize1 = "3rem" fontsize2 = "2rem" justifycontent = "center" width = "100%">
-         An adventure that challenges your logic and math skills.<br><br>
-		<section>
-				<div style="width: 100%; max-width: 1200px; margin: 0 auto;">
-  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-    <iframe 
-      src="https://view.genially.com/69b5552f8664db388c524ef7" 
-      title="Escape from Pixel Castle" 
-      frameborder="0" 
-      allowfullscreen 
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-    </iframe>
-            </div></div>
-		</section>	
-	</HorizontalSection>
-
-    <HorizontalSection title="Bomb Quiz" direction="center" fontsize1="3rem" fontsize2="2rem" justifycontent="center" width="100%">
-        Answer questions quickly to defuse the virtual bomb!<br><br>
-  <section>
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe 
-          src="https://view.genially.com/69b5236e5405d724fc4b582d" 
-          title="Bomb Quiz" 
-          frameborder="0" 
-          allowfullscreen 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-        </iframe>
+  <!-- GAME 1 -->
+  <div class="GameCard">
+      <iframe 
+          src="https://view.genially.com/69b5552f8664db388c524ef7"
+          title="Escape from Pixel Castle"
+          frameborder="0"
+      ></iframe>
+      <div class="GameOverlay">
+          <h3>Escape from Pixel Castle</h3>
+          <a href="/Scaleculus/Game1/" target="_blank" class="PlayButton">Play Now</a>
       </div>
-    </div>
-  </section>
-</HorizontalSection>
+  </div>
 
-<HorizontalSection title="Dunk the Clown Quiz" direction="center" fontsize1="3rem" fontsize2="2rem" justifycontent="center" width="100%">
-    Test your skills and dunk the clown by solving math challenges.<br><br>
-
-  <section>
-    <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
-      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe 
-          src="https://view.genially.com/69b575d77c50f40e0ddf341d" 
-          title="Dunk the Clown Quiz" 
-          frameborder="0" 
-          allowfullscreen 
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-        </iframe>
+  <!-- GAME 2 -->
+  <div class="GameCard">
+      <iframe 
+          src="https://view.genially.com/69b5236e5405d724fc4b582d"
+          title="Bomb Quiz"
+          frameborder="0"
+      ></iframe>
+      <div class="GameOverlay">
+          <h3>Bomb Quiz</h3>
+          <a href="/Scaleculus/Game2/" target="_blank" class="PlayButton">Play Now</a>
       </div>
-    </div>
-  </section>
+  </div>
+
+  <!-- GAME 3 -->
+  <div class="GameCard">
+      <iframe 
+          src="https://view.genially.com/69b575d77c50f40e0ddf341d"
+          title="Dunk the Clown Quiz"
+          frameborder="0"
+      ></iframe>
+      <div class="GameOverlay">
+          <h3>Dunk the Clown Quiz</h3>
+          <a href="/Scaleculus/Game3/" target="_blank" class="PlayButton">Play Now</a>
+      </div>
+  </div>
+
+</section>
 </HorizontalSection>
 
 </SubLayout>
@@ -129,4 +115,78 @@ import { Accordion, AccordionItem } from 'free-astro-components'
     box-sizing: border-box;
 	}
 
+  .Games {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.GameCard {
+    position: relative;
+    width: 30rem;
+    height: 50rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 2px solid var(--wisteria-2);
+
+    /* Make iframe content scale */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.GameCard iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+
+    /* Blur & disable interaction */
+    filter: blur(6px) brightness(100%);
+    pointer-events: none;
+
+    /* Zoom content to fit while keeping aspect ratio */
+    transform: scale(1.05); /* adjust as needed */
+    transform-origin: top center;
+     transition: 1s;
+}
+
+.GameCard:hover iframe{
+filter: blur(6px) brightness(50%);
+}
+
+.GameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-align: center;
+}
+
+
+.PlayButton {
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+
+    background: var(--wisteria-2);
+    color: white;
+    text-decoration: none;
+
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.PlayButton:hover {
+    background: var(--amethyst-smoke);
+}
 </style>

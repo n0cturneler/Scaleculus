@@ -57,7 +57,7 @@ import StepList from '../components/StepsElement.astro';
     <main class="main-content">
       <div class="Spacer"></div>
       <HorSection2
-        title="Limits"
+        title=""
         id="Title_limits"
         direction="left"
         fontsize1="4rem"
@@ -65,18 +65,38 @@ import StepList from '../components/StepsElement.astro';
         justifycontent="flex-start"
         width="100%"
       >
+      
+    <img 
+    src="/Scaleculus/titles/Limits.png" 
+    alt="Title"
+    style="
+      width: clamp(200px, 60vw, 800px);
+      height: 300px;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+      object-position: center;
+    "
+    >
+   
       </HorSection2>
 
       <HorSection2
         title="Video Lesson"
         id="Limits_Video"
-        direction="left"
+        direction="center"
         fontsize1="4rem"
         fontsize2="2rem"
         justifycontent="flex-start"
         width="100%"
       >
-        [Insert Video]  
+        <iframe 
+  width="1000vw" 
+  height="600vh" 
+  src="/Scaleculus/lessons/Limits.mov"
+  frameborder="0"
+  allowfullscreen>
+</iframe>  
       </HorSection2>
 
       <HorSection2
@@ -1047,7 +1067,7 @@ html {
   font-weight: 1000;
   text-decoration: none;
   font-family: "Quicksand", sans-serif;
-  font-size: 1.3rem;       /* bigger font size */
+  font-size: 1.2rem;       /* bigger font size */
   padding: 0.5rem 0 2rem 0; /* keep vertical spacing */
   transition: all 0.3s ease;
 }
